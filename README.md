@@ -32,6 +32,17 @@ image avec des couleurs remplies.
 ![Image sans canal alpha](./img/Question3.png)
 
 
+### Question 9
+
+Pour calculer la distance entre deux couleurs, selon la source [source pour la distance entre deux couleurs](https://fr.wikipedia.org/wiki/%C3%89cart_de_couleur), nommée delta E, elle est calculable ainsi :
+
+![Formule écart](./img/calculEcart.svg)
+
+Les [paramètres couleur 1](./img/parametres_calcul_ecart_couleur_1_readme.svg) sont les coordonnées dans l'espace colorimétrique de la première couleur à comparer et [paramètres couleur 2](./img/parametres_calcul_ecart_couleur_2_readme.svg) les coordonnées de la seconde couleur.
+
+Cette formule se base sur la formule de la distance euclidienne.
+
+
 ## Utilisation
 
 ## Notes
