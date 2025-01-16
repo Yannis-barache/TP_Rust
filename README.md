@@ -10,6 +10,30 @@
 
 Ce projet est un TP noté en Rust pour le cours de Programmation avancée de BUT3 à l'IUT d'Orléans.
 
+## Réponses aux questions
+
+### Question 2
+
+Une DynamicImage est une matrice de pixels convertible avec une représentation RGBA.
+
+Pour convertir une DynamicImage en RGB8 il faut utiliser la méthode `to_rgb8()`.
+```rust
+let img = ImageReader::open("./img/iut.jpg")?.decode()?;
+let img_rgb = img.to_rgb8();
+```
+
+### Question 3
+L'image utilisé est `PNG_canal_alpha.png` qui est une image PNG avec un canal alpha.
+![Image avec canal alpha](./img/PNG_canal_alpha.png)
+
+En la convertissant en RGB8 on obtient une image sans canal alpha. Le canal alpha est donc supprimé et obtient une 
+image avec des couleurs remplies.
+
+![Image sans canal alpha](./img/Question3.png)
+
+
+## Utilisation
+
 ## Notes
 pallette vide
 
