@@ -29,7 +29,7 @@ L'image utilisé est `PNG_canal_alpha.png` qui est une image PNG avec un canal a
 En la convertissant en RGB8 on obtient une image sans canal alpha. Le canal alpha est donc supprimé et obtient une 
 image avec des couleurs remplies.
 
-![Image sans canal alpha](./img/RGB8_canal_alpha.png)
+![Image sans canal alpha](./img/Question3.png)
 
 
 ## Utilisation
