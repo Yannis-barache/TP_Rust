@@ -21,7 +21,10 @@ fn get_pixel(img: &DynamicImage, x: u32, y: u32) -> [u8; 4] {
     pixel.0
 }
 
-
+fn get_pixel_rgb8(img: &RgbImage, x: u32, y: u32) -> [u8; 3] {
+    let pixel = img.get_pixel(x, y);
+    pixel.0
+}
 
 fn alternate_normal_white(img: &DynamicImage)-> RgbImage {
     let mut img = img.to_rgb8();
@@ -32,6 +35,47 @@ fn alternate_normal_white(img: &DynamicImage)-> RgbImage {
             }
         }
     }
+    img
+}
+
+fn rgb_distance(c1: Rgb<u8>, c2: Rgb<u8>) -> f32 {
+    let r_diff = c2[0] as f32 - c1[0] as f32;
+    let g_diff = c2[1] as f32 - c1[1] as f32;
+    let b_diff = c2[2] as f32 - c1[2] as f32;
+    (r_diff * r_diff + g_diff * g_diff + b_diff * b_diff).sqrt()
+}
+
+fn index_image_on_palette(img: &DynamicImage, palette: &[Rgb<u8>]) -> RgbImage {
+    let mut img = img.to_rgb8();
+
+    // Si la palette est vide
+    if palette.is_empty() {
+        println!("La palette est vide. L'image sera la même.");
+        return img;
+    }
+    
+    for x in 0..img.width() {
+        for y in 0..img.height() {
+            let pixel = get_pixel_rgb8(&img, x, y);
+            let pixel_rgb = Rgb([pixel[0], pixel[1], pixel[2]]);
+            
+            // On recherche la couleur la plus proche de la palette 
+            let mut distance_min = f32::MAX;
+            let mut couleur_proche = pixel_rgb;
+            
+            for &color in palette {
+                let distance = rgb_distance(pixel_rgb, color);
+                if distance < distance_min {
+                    distance_min = distance;
+                    couleur_proche = color;
+                }
+            }
+            
+            // On remplace le pixel par la couleur la plus proche du pixel auparavant
+            img.put_pixel(x, y, couleur_proche);
+        }
+    }
+    
     img
 }
 
@@ -61,4 +105,22 @@ fn main() {
     // On passe un pixel sur 2 en blanc (255, 255, 255)
     let white = alternate_normal_white(&img_iut);
     save_image_rgb8(&DynamicImage::ImageRgb8(white), "Question5.png");
+
+    println!("----------Question 10------------");
+    // Définition de la palette de couleurs 
+    let palette = vec![
+        Rgb([0, 0, 0]), // Noir
+        Rgb([255, 0, 0]), // Rouge
+        Rgb([0, 255, 0]), // Vert
+        Rgb([0, 0, 255]), // Bleu
+        Rgb([255, 255, 0]), // Jaune
+        Rgb([255, 255, 255]), // Blanc
+        Rgb([255, 0, 255]), // Magenta
+        Rgb([0, 255, 255]), // Cyan
+    ];
+
+    // Indexation de l'image
+    let image_indexe = index_image_on_palette(&img_iut, &palette);
+    save_image_rgb8(&DynamicImage::ImageRgb8(image_indexe), "Question10.png");
+    println!("Image sauvegardée avec succès");
 }

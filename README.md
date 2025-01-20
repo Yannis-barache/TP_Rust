@@ -38,10 +38,12 @@ Pour calculer la distance entre deux couleurs, selon la source [source pour la d
 
 ![Formule écart](./img/calculEcart.svg)
 
-Les [paramètres couleur 1](./img/parametres_calcul_ecart_couleur_1_readme.svg) sont les coordonnées dans l'espace colorimétrique de la première couleur à comparer et [paramètres couleur 2](./img/parametres_calcul_ecart_couleur_2_readme.svg) les coordonnées de la seconde couleur.
+Il est dit dans la source que l'on reconnait la formule de la distance euclidienne. J'ai trouvé un peu difficile la formule, j'ai donc utilisé la formule de la distance euclidienne avec le RGB. 
 
-Cette formule se base sur la formule de la distance euclidienne.
+![Formule euclidienne RGB](./img/formule_euclidienne_rgb.png)
 
+### Question 11
+J'ai choisi la situation suivante : si la palette est vide, on ne change pas l'image et on la laisse telle qu'elle est, et nous prévenons l'utilisateur que la palette donnée est vide donc que ça n'a rien changé.
 
 ## Utilisation
 
