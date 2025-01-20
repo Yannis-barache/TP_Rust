@@ -41,6 +41,19 @@ Pour obtenir la luminosité d'un pixel il faut utiliser la formule suivante :
 
 
 
+### Question 9
+
+Pour calculer la distance entre deux couleurs, selon la source [source pour la distance entre deux couleurs](https://fr.wikipedia.org/wiki/%C3%89cart_de_couleur), nommée delta E, elle est calculable ainsi :
+
+![Formule écart](./img/calculEcart.svg)
+
+Il est dit dans la source que l'on reconnait la formule de la distance euclidienne. J'ai trouvé un peu difficile la formule, j'ai donc utilisé la formule de la distance euclidienne avec le RGB. 
+
+![Formule euclidienne RGB](./img/formule_euclidienne_rgb.png)
+
+### Question 11
+J'ai choisi la situation suivante : si la palette est vide, on ne change pas l'image et on la laisse telle qu'elle est, et nous prévenons l'utilisateur que la palette donnée est vide donc que ça n'a rien changé.
+
 ## Utilisation
 
 ## Notes
