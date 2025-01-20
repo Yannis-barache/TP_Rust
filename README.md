@@ -31,6 +31,15 @@ image avec des couleurs remplies.
 
 ![Image sans canal alpha](./img/Question3.png)
 
+### Question 6
+
+Pour obtenir la luminosité d'un pixel il faut utiliser la formule suivante :
+
+`0.212671 * r + 0.715160 * g + 0.072169 * b`
+
+
+
+
 
 ### Question 9
 
